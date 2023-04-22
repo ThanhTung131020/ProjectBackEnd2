@@ -8,7 +8,7 @@
                 <div class="card">
                     <h3 class="card-header text-center">Register User</h3>
                     <div class="card-body">
-                        <form action="{{ route('register.custom') }}" method="POST">
+                        <form action="{{ route('register.custom') }}" method="POST"  enctype="multipart/form-data">
                             @csrf
                             <div class="form-group mb-3">
                                 <input type="text" placeholder="Name" id="name" class="form-control" name="name"
@@ -30,6 +30,17 @@
                                 @if ($errors->has('password'))
                                 <span class="text-danger">{{ $errors->first('password') }}</span>
                                 @endif
+                            </div>
+                            <div class="form-group mb-3">
+                                <input type="text" placeholder="phone" id="phone" class="form-control" name="phone"
+                                required autofocus>
+                           
+
+
+                            </div>
+                            <div>
+                                <input type="file" name="fileToUpload" id="fileToUpload">
+                                
                             </div>
                             <div class="form-group mb-3">
                                 <div class="checkbox">

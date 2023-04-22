@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Hash;
-use Session;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\DB;
+
 class CustomAuthController extends Controller
 {
+    public $data = [];
     /**
      * Write code on Method
      *
@@ -27,17 +30,12 @@ class CustomAuthController extends Controller
      */
     public function customLogin(Request $request)
     {
-        $request->validate([
-            'email' => 'required',
-            'password' => 'required',
-        ]);
 
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard')
-                ->withSuccess('Signed in');
-        }
 
+            return view('dashboard');
+        }
         return redirect("login")->withSuccess('Login details are not valid');
     }
 
@@ -65,6 +63,14 @@ class CustomAuthController extends Controller
         ]);
 
         $data = $request->all();
+        //upload					
+        $file = $request->file('fileToUpload');
+        $fileName = $file->getClientOriginalName();
+        $destinationPath = 'uploads';
+        $file->move($destinationPath, $file->getClientOriginalName());
+
+        $data['fileName'] = $fileName;
+
         $check = $this->create($data);
 
         return redirect("dashboard")->withSuccess('You have signed-in');
@@ -75,14 +81,16 @@ class CustomAuthController extends Controller
      *
      * @return response()
      */
-    // public function create(array $data)
-    // {
-    //     return User::create([
-    //         'name' => $data['name'],
-    //         'email' => $data['email'],
-    //         'password' => Hash::make($data['password'])
-    //     ]);
-    // }
+    public function create(array $data)
+    {
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'phone' => $data['phone'],
+            'fileToUpload' => $data['fileName'],
+            'password' => Hash::make($data['password'])
+        ]);
+    }
 
     /**
      * Write code on Method
@@ -91,6 +99,8 @@ class CustomAuthController extends Controller
      */
     public function dashboard()
     {
+
+
         if (Auth::check()) {
             return view('dashboard');
         }
@@ -103,11 +113,23 @@ class CustomAuthController extends Controller
      *
      * @return response()
      */
-    // public function signOut()
-    // {
-    //     Session::flush();
-    //     Auth::logout();
+    public function signOut()
+    {
+        Session::flush();
+        Auth::logout();
 
-    //     return Redirect('login');
-    // }
+        return Redirect('login');
+    }
+    public function listUser()
+    {
+        $users = User::paginate(2);
+        return view('auth.listUser', compact('users'))->with('i', request()->input('page', 1) - 1 * 5);
+    }
+
+    public function detail($id)
+    {
+        $users = DB::table('users')->find($id);
+
+        return view('auth.detail', compact('users'));
+    }
 }
