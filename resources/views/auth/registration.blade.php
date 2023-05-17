@@ -1,5 +1,4 @@
 @extends('dashboard')
-
 @section('content')
 <main class="signup-form">
     <div class="cotainer">

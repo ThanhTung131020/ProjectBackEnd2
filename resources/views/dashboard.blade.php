@@ -24,6 +24,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('list.users') }}">List Uers</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://anycar.vn/tin-tuc/">tin tức</a>
+                    </li>
                     @else
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('signout') }}">Logout</a>
@@ -34,6 +37,11 @@
             </div>
         </div>
     </nav>
+    
     @yield('content')
+
+    {{---HOME---}}
+    
 </body>
+  
 </html>

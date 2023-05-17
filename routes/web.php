@@ -3,6 +3,8 @@
 
 use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\CustumControllerCar;
+use App\Http\Controllers\ControllerCar;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,3 +25,8 @@ Route::post('custom-registration', [CustomAuthController::class, 'customRegistra
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 Route::get('listUser', [CustomAuthController::class, 'listUser'])->name('list.users');
 Route::get('details/{id}', [CustomAuthController::class, 'detail'])->name('detail.user');
+//car
+Route::get('header', [ControllerCar::class, 'header']);
+Route::get('home', [ControllerCar::class, 'index'])->name('home');
+Route::get('products', [ControllerCar::class, 'listcar'])->name('products');
+//

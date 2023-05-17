@@ -65,11 +65,11 @@ class CustomAuthController extends Controller
         $data = $request->all();
         //upload					
         $file = $request->file('fileToUpload');
-        $fileName = $file->getClientOriginalName();
+        $fileName = 'hinhanh_' . $file->getClientOriginalName();
         $destinationPath = 'uploads';
-        $file->move($destinationPath, $file->getClientOriginalName());
+        $file->move($destinationPath, 'hinhanh_' . $file->getClientOriginalName());
 
-        $data['fileName'] = $fileName;
+        $data['fileName'] =  $fileName;
 
         $check = $this->create($data);
 
@@ -129,7 +129,6 @@ class CustomAuthController extends Controller
     public function detail($id)
     {
         $users = DB::table('users')->find($id);
-
         return view('auth.detail', compact('users'));
     }
 }
