@@ -1,39 +1,8 @@
-@extends('Car/index')
-@section('content')
+@extends('Car/header')
+
 <body>
     <div class="main">
-        <div class="content-left">
-            <div class="header-left">
-                <div class="logo">
-                    <a href="#">
-                        <img src="./img/logo.png" alt="">
-                    </a>
-                </div>
-                <div class="side-bar">
-                    <div class="navigation">
-                        <div class="search">
-                            <input type="text" placeholder="Từ khóa">
-                        </div>
-                        <div class="menu">
-                            <ul class="navbar-menu">
-                                <li><a href="./index.html" class="active">Trang chủ</a></li>
-                                <li><a href="#">Giới thiệu</a></li>
-                                <li><a href="#">Sản phẩm</a></li>
-                                <li><a href="#">Tin tức</a></li>
-                                <li><a href="#">Sự kiện</a></li>
-                                <li><a href="#">Hệ thống cửa hàng</a></li>
-                                <li><a href="#">Liên hệ</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="navigation-bottom">
-                        <div class="account">
-                            <a href="#">Đăng nhập</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+       
         <div class="content-right">
             <div class="breadcum">
                 <ul class="breadcum-menu">
@@ -42,33 +11,10 @@
                 </ul>
             </div>
             <div class="collection-product">
-                <div class="sor-pagi">
-                    <b>Sắp xếp:</b>
-                    <label for="" class="form-checkput">
-                        <input type="radio">
-                        A → Z
-                    </label>
-                    <label for="" class="form-checkput">
-                        <input type="radio">
-                        Z → A
-                    </label>
-                    <label for="" class="form-checkput">
-                        <input type="radio">
-                        Giá tăng dần
-                    </label>
-                    <label for="" class="form-checkput">
-                        <input type="radio">
-                        Giá giảm dần
-                    </label>
-                    <label for="" class="form-checkput">
-                        <input type="radio">
-                        Hàng mới nhất
-                    </label>
-                    <label for="" class="form-checkput">
-                        <input type="radio">
-                        Hàng cũ nhất
-                    </label>
-                </div>
+                <form action="" class="register-sub">
+                    <input class="hoten" type="text" placeholder="Họ tên" name="key">
+                   
+                </form>
                 <div class="product all-product">
                     @foreach ($car as $item)
                     <div class="box">
@@ -142,5 +88,3 @@
         </div>
     </div>
 </body>
-@endsection
-@yield('content')

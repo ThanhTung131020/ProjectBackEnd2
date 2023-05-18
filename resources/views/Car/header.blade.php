@@ -397,7 +397,7 @@ h2.title-register {
 
 form.register-sub input.hoten {
   width: 100%;
-  background-color: #2d343a;
+  background-color: #ffffff;
   border: 1px solid #59646a;
   padding: 6px 12px;
   border-radius: 3px;
@@ -622,7 +622,7 @@ ul.pagination li a.page-link {
                             </ul>
                         </div>
                     </div>
-                    <a href="#">Đăng nhập</a>
+                  
                     <div class="navigation-bottom">
                         <div class="account">
                         </div>

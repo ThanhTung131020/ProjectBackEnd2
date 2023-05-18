@@ -28,6 +28,9 @@ class ControllerCar extends Controller
     public function listCar()
     {
         $car = Car::paginate(3);
+        if ($key = request()->key) {
+            $car = Car::orderBy('id', 'DESC')->where('name', 'like', '%' . $key . '%')->paginate(3);
+        }
         return view('Car.sanpham', compact('car'))->with('i', request()->input('page', 1) - 1 * 5);
     }
     public function delailProduct($id)
