@@ -1,7 +1,5 @@
 @extends('Car/index')
 @section('content')
-
-
 <body>
     <div class="main">
         <div class="content-left">
@@ -86,7 +84,7 @@
                                     <span class="regular-price">{{$item ->price}}</span>
                                 </div>
                                 <div class="chitiet">
-                                    <a href="#">
+                                    <a href="{{route('detail.car',['id'=>$item->id])}}">
                                         Chi tiết
                                     </a>
                                 </div>
@@ -97,23 +95,7 @@
                     @endforeach
                    
                 </div>
-                <ul class="pagination">
-                    <li>
-                        <a class="" href="#" title="Trang trước">«</a>
-                    </li>
-                    <li>
-                        <a href="#" class="page-link">1</a>
-                    </li>
-                    <li>
-                        <a href="#">2</a>
-                    </li>
-                    <li>
-                        <a href="#">3</a>
-                    </li>
-                    <li>
-                        <a title="Trang kế">»</a>
-                    </li>
-                </ul>
+                
             </div>
             <!-- footer -->
             <div class="footer">

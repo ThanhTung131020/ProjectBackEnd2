@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Car;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Expr\FuncCall;
 
 class ControllerCar extends Controller
 {
@@ -27,6 +29,13 @@ class ControllerCar extends Controller
     {
         $car = Car::paginate(3);
         return view('Car.sanpham', compact('car'))->with('i', request()->input('page', 1) - 1 * 5);
+    }
+    public function delailProduct($id)
+    {
+        $cars = DB::table('cars')->find($id);
+
+
+        return view('Car.detail', compact('cars'));
     }
 
     /**

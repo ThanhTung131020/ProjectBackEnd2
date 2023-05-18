@@ -29,4 +29,6 @@ Route::get('details/{id}', [CustomAuthController::class, 'detail'])->name('detai
 Route::get('header', [ControllerCar::class, 'header']);
 Route::get('home', [ControllerCar::class, 'index'])->name('home');
 Route::get('products', [ControllerCar::class, 'listcar'])->name('products');
+Route::get('detail/{id}', [ControllerCar::class, 'delailProduct'])->name('detail.car');
+
 //
