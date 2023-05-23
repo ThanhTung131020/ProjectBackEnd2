@@ -76,6 +76,7 @@ class CustomAuthController extends Controller
         return redirect("dashboard")->withSuccess('You have signed-in');
     }
 
+
     /**
      * Write code on Method
      *

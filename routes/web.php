@@ -3,7 +3,7 @@
 
 use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\CustomAuthController;
-use App\Http\Controllers\CustumControllerCar;
+
 use App\Http\Controllers\ControllerCar;
 /*
 |--------------------------------------------------------------------------
@@ -30,5 +30,10 @@ Route::get('header', [ControllerCar::class, 'header']);
 Route::get('home', [ControllerCar::class, 'index'])->name('home');
 Route::get('products', [ControllerCar::class, 'listcar'])->name('products');
 Route::get('detail/{id}', [ControllerCar::class, 'delailProduct'])->name('detail.car');
+Route::get('admin/car', [ControllerCar::class, 'adminListCar'])->name('admin.car');
+Route::get('admin', [ControllerCar::class, 'add'])->name('admin.add');
+//Route::post('add', [ControllerCar::class, 'custumAddCar'])->name('add.custom');
+Route::get('editProduct', [ControllerCar::class, 'testedit'])->name('editProducts');
+
 
 //
