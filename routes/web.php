@@ -33,7 +33,9 @@ Route::get('detail/{id}', [ControllerCar::class, 'delailProduct'])->name('detail
 Route::get('admin/car', [ControllerCar::class, 'adminListCar'])->name('admin.car');
 Route::get('admin', [ControllerCar::class, 'add'])->name('admin.add');
 //Route::post('add', [ControllerCar::class, 'custumAddCar'])->name('add.custom');
-Route::get('editProduct', [ControllerCar::class, 'testedit'])->name('editProducts');
+Route::get('edit/{id}', [ControllerCar::class, 'edit'])->name('editProducts');
+Route::put('updatecar/{id}', [ControllerCar::class, 'update'])->name('editCar');
+
 
 
 //

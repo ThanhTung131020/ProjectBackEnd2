@@ -21,7 +21,9 @@ class Car extends Model
         'image1',
         'image2',
         'image3',
-        'manufacture'
+        'manufacture',
+
+
     ];
     protected $hidden = [];
 

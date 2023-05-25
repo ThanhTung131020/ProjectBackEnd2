@@ -9,6 +9,7 @@ use Illuminate\Console\View\Components\Alert;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use PhpParser\Node\Expr\FuncCall;
+use function PHPUnit\Framework\returnValueMap;
 
 class ControllerCar extends Controller
 {
@@ -93,12 +94,12 @@ class ControllerCar extends Controller
         $data = $request->all();
         $file = $request->file('mainImage');
         $file1 = $request->file('image1');
-        $file2= $request->file('image2');
+        $file2 = $request->file('image2');
         $file3 = $request->file('image3');
-         $filename ='car_' . $file->getClientOriginalName();
-        $filename1 ='car_' . $file1->getClientOriginalName();
-        $filename2 ='car_' . $file2->getClientOriginalName();
-        $filename3 ='car_' . $file3->getClientOriginalName();
+        $filename = 'car_' . $file->getClientOriginalName();
+        $filename1 = 'car_' . $file1->getClientOriginalName();
+        $filename2 = 'car_' . $file2->getClientOriginalName();
+        $filename3 = 'car_' . $file3->getClientOriginalName();
         $destinationPath = 'uploads';
         $file->move($destinationPath, 'car_' . $file->getClientOriginalName());
         $file1->move($destinationPath, 'car_' . $file1->getClientOriginalName());
@@ -110,7 +111,7 @@ class ControllerCar extends Controller
         $data['filename3'] = $filename3;
         $check = $this->create($data);
 
-       return redirect()->route('admin.car')->with('thongbao', 'them thanh cong');
+        return redirect()->route('admin.car')->with('thongbao', 'them thanh cong');
     }
     public function store(Request $request)
     {
@@ -135,15 +136,15 @@ class ControllerCar extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function testedit()
-    {
-        return view('admin.edit');
-    }
+
     public function edit($id)
     {
         //r
+        $cars = DB::table('cars')->find($id);
 
+        return view('admin.edit', compact('cars'));
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -152,9 +153,39 @@ class ControllerCar extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+
+
+        $car = Car::find($id);
+        $car->name = Request()->name;
+        $car->price = Request()->price;
+        $car->description = Request()->description;
+        $car->company = Request()->company;
+        $file = Request()->file('mainImage');
+        $file1 = Request()->file('image1');
+        $file2 = Request()->file('image2');
+        $file3 = Request()->file('image3');
+        $filename = 'car_' . $file->getClientOriginalName();
+        $filename1 = 'car_' . $file1->getClientOriginalName();
+        $filename2 = 'car_' . $file2->getClientOriginalName();
+        $filename3 = 'car_' . $file3->getClientOriginalName();
+        $destinationPath = 'uploads';
+        $file->move($destinationPath, 'car_' . $file->getClientOriginalName());
+        $file1->move($destinationPath, 'car_' . $file1->getClientOriginalName());
+        $file2->move($destinationPath, 'car_' . $file2->getClientOriginalName());
+        $file3->move($destinationPath, 'car_' . $file3->getClientOriginalName());
+        $car['mainImage'] = $filename;
+        $car['image1'] = $filename1;
+        $car['image2'] = $filename2;
+        $car['image3'] = $filename3;
+        // $car->image1 = Request()->image1;
+        // $car->image2 = Request()->image2;
+        // $car->image3 = Request()->image3;
+        $car->manufacture = Request()->manufacture;
+
+        $car->save();
+        return redirect()->route('admin.car');
     }
 
     /**
