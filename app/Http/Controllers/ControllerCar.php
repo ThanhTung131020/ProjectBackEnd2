@@ -197,5 +197,14 @@ class ControllerCar extends Controller
     public function destroy($id)
     {
         //
+        $car = Car::find($id);
+        $despath = 'uploads/' . $car->mainImage;
+
+        if (file_exists($despath)) {
+            unlink($despath);
+        }
+
+        $car->delete();
+        return redirect()->route('admin.car');
     }
 }

@@ -19,8 +19,8 @@
                     @foreach ($car as $item)
                     <div class="box">
                         <div class="img-thumb">
-                            <a href="#">
-                                <img src="{{$item ->mainImage}}" alt="">
+                            <a href="#">    
+                                <img src="{{url('uploads')}}/{{$item ->mainImage}}" alt="">
                             </a>
                             <div class="info-car">
                                 <h3 class="title">
