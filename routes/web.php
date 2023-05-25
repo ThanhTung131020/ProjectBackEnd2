@@ -42,5 +42,5 @@ Route::get('nb', [ControllerCar::class, 'sanPhamNoiBat'])->name('nb');
 
 
 //
-Route::get('dstuvan', [peopleController::class, 'index']);
+Route::get('dstuvan', [peopleController::class, 'dstuvan']);
 Route::get('tuvan', [peopleController::class, 'store'])->name('add-tu-van');

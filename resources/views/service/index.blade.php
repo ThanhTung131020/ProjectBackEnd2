@@ -38,21 +38,21 @@
                     <tbody>
 
 
-
+                        @foreach($people as $item)
                         <tr>
 
                             <td>{{++$i}}</td>
-                            <td>121</td>
-                            <td>1231</td>
-                            <td>1231</td>
-                            <td>
+                            <td>{{$item->name}}</td>
+                            <td>{{$item->phone}}</td>
+                            <td>{{$item->message}}</td>
+                            <td>{{$item->email}}
                                 </td>
 
                         </tr>
-
+                        @endforeach
                     </tbody>
                 </table>
-
+                {{$people->links()}}
             </div>
         </div>
     </div>
