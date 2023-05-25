@@ -77,8 +77,12 @@
                     <a href="#">SẢN PHẨM NỔI BẬT</a>
                 </h3>
                 <div class="box">
+
+
+
+
                     <div class="img-thumb">
-                        <a href="#">
+                        <a href="">
                             <img src="https://mensfolio.vn/wp-content/uploads/2021/07/Aventador-Ultimae-Coupe-1-3961-1625659942.jpg" alt="">
                         </a>
                         <div class="info-car">
@@ -96,6 +100,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="box">
                     <div class="img-thumb">
                         <a href="#">
@@ -258,9 +263,9 @@
             </div>
             <!-- review -->
             <div class="review">
-              
+
                 <div class="review-left">
-                    
+
                     <a href="#">
                         <img src="https://assets.entrepreneur.com/content/3x2/2000/1661888151-DAL500017.jpg" alt="">
                     </a>
@@ -370,19 +375,20 @@
                 </div>
                 <div class="footer-right">
                     <h2 class="title-register">Đăng ký tư vấn</h2>
-                    <form action="" class="register-sub">
-                        <input class="hoten" type="text" placeholder="Họ tên">
+                    <form action="{{route('add-tu-van')}}" class="register-sub">
+                        <input class="hoten" type="text" placeholder="Họ tên" name="name">
                         <div class="regiter-left">
-                            <input type="text" placeholder="Số diện thoại">
+                            <input type="text" placeholder="Số diện thoại" name="phone">
                         </div>
                         <div class="regiter-right">
-                            <input type="text" placeholder="Địa chỉ email">
+                            <input type="text" placeholder="Địa chỉ email" name="email">
                         </div>
-                        <textarea name="" id="form-group" cols="30" rows="10" placeholder="Lời nhắn"></textarea>
+                        <textarea name="message" id="form-group" cols="30" rows="10" placeholder="Lời nhắn" ></textarea>
+                        <div class="button-register">
+                            <button type="submit">Đăng ký</button>
+                        </div>
                     </form>
-                    <div class="button-register">
-                        <button>Đăng ký</button>
-                    </div>
+
                 </div>
             </div>
             <!-- footer ends -->

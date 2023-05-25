@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\CustomAuthController;
 
 use App\Http\Controllers\ControllerCar;
+use App\Http\Controllers\peopleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,6 +37,10 @@ Route::get('admin', [ControllerCar::class, 'add'])->name('admin.add');
 Route::get('edit/{id}', [ControllerCar::class, 'edit'])->name('editProducts');
 Route::put('updatecar/{id}', [ControllerCar::class, 'update'])->name('editCar');
 Route::get('delete/{id}', [ControllerCar::class, 'destroy'])->name('delete');
+Route::get('sortname' ,[ControllerCar::class, 'sort'])->name('sortname');
+Route::get('nb', [ControllerCar::class, 'sanPhamNoiBat'])->name('nb');
 
 
 //
+Route::get('dstuvan', [peopleController::class, 'index']);
+Route::get('tuvan', [peopleController::class, 'store'])->name('add-tu-van');

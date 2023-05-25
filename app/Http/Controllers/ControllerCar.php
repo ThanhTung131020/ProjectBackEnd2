@@ -34,9 +34,13 @@ class ControllerCar extends Controller
         $car = Car::paginate(3);
         if ($key = request()->key) {
             $car = Car::orderBy('id', 'DESC')->where('name', 'like', '%' . $key . '%')->paginate(3);
-        } else {
         }
         return view('Car.sanpham', compact('car'))->with('i', request()->input('page', 1) - 1 * 5);
+    }
+    public function sanPhamNoiBat(){
+       $cars = Car::panigate(4);
+       dd($cars);
+
     }
     public function delailProduct($id)
     {
@@ -45,7 +49,7 @@ class ControllerCar extends Controller
     }
     public function adminListCar()
     {
-        $car = Car::paginate(10);
+        $car = Car::paginate(3);
         return view('admin.index', compact('car'))->with('i', request()->input('page', 1) - 1 * 5);
     }
 
@@ -206,5 +210,8 @@ class ControllerCar extends Controller
 
         $car->delete();
         return redirect()->route('admin.car');
+    }
+    public function sort(Request $request)
+    {
     }
 }

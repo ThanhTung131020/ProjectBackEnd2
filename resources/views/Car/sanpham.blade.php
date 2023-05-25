@@ -2,7 +2,7 @@
 
 <body>
     <div class="main">
-       
+
         <div class="content-right">
             <div class="breadcum">
                 <ul class="breadcum-menu">
@@ -13,13 +13,13 @@
             <div class="collection-product">
                 <form action="" class="register-sub">
                     <input class="hoten" type="text" placeholder="Họ tên" name="key">
-                   
+
                 </form>
                 <div class="product all-product">
                     @foreach ($car as $item)
                     <div class="box">
                         <div class="img-thumb">
-                            <a href="#">    
+                            <a href="#">
                                 <img src="{{url('uploads')}}/{{$item ->mainImage}}" alt="">
                             </a>
                             <div class="info-car">
@@ -37,53 +37,15 @@
                             </div>
                         </div>
                     </div>
-                   
+
                     @endforeach
-                   
+
                 </div>
-                
+
             </div>
+            {{$car->links()}}
             <!-- footer -->
-            <div class="footer">
-                <div class="footer-left">
-                    <h3 class="footer-title">
-                        <a href="#">Liên hệ</a>
-                    </h3>
-                    <span class="logo-title">
-                        Mew S
-                    </span>
-                    <p>
-                        Địa chỉ: Số 17/110 Trần Duy Hưng
-                    </p>
-                    <p>
-                        Email: jansperry4@gmail.com
-                    </p>
-                    <p>
-                        Số điện thoại: 0975997736
-                    </p>
-                    <div class="cart-icon">
-                        <img src="./img/payment-1.png" alt="">
-                        <img src="./img/payment-2.png" alt="">
-                        <img src="./img/payment-3.png" alt="">
-                        <img src="./img/payment-4.png" alt="">
-                    </div>
-                </div>
-                <div class="footer-right">
-                    <h2 class="title-register">Đăng ký tư vấn</h2>
-                    <form action="" class="register-sub">
-                        <input class="hoten" type="text" placeholder="Họ tên">
-                        <div class="regiter-left">
-                            <input type="text" placeholder="Số diện thoại">
-                        </div> <div class="regiter-right">
-                            <input type="text" placeholder="Địa chỉ email">
-                        </div>
-                        <textarea name="" id="form-group" cols="30" rows="10" placeholder="Lời nhắn"></textarea>
-                    </form>
-                    <div class="button-register">
-                        <button>Đăng ký</button>
-                    </div>
-                </div>
-            </div>
+
             <!-- footer ends -->
         </div>
     </div>
