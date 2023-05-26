@@ -45,3 +45,5 @@ Route::get('nb', [ControllerCar::class, 'sanPhamNoiBat'])->name('nb');
 Route::get('dstuvan', [peopleController::class, 'dstuvan'])->name('ds-tu-van');
 Route::get('tuvan', [peopleController::class, 'store'])->name('add-tu-van');
 Route::get('delete/{id}', [peopleController::class, 'destroy'])->name('delete');
+Route::get('status/{id}', [peopleController::class, 'updateStatus'])->name('updatestatus');
+

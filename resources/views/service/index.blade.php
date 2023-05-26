@@ -8,7 +8,7 @@
                     <div class="col-md-6">
 
 
-                        <h3>danh sach tu van</h3>
+                        <h3>danh sách tư vấn</h3>
 
                     </div>
 
@@ -16,7 +16,10 @@
 
 
             </div>
+            <div class="col-md-6">
+                <a href="{{route('home')}}" class="btn btn-primary float-end" >trang chủ </a>
 
+            </div>
             <div class="car-body">
 
 
@@ -29,6 +32,7 @@
                         <th>sdt</th>
                         <th>loi nhan</th>
                         <th>email</th>
+                        <th>trạng thái</th>
                          <th>chức năng</th>
 
                     </tr>
@@ -46,6 +50,8 @@
                             <td>{{$item->phone}}</td>
                             <td>{{$item->message}} </td>
                             <td>{{$item->email}}</td>
+
+                            <td><a href="{{route('updatestatus',['id'=>$item->id])}}">{{$item ->status}}</a> </td>
                             <td><a href="{{route('delete',['id'=>$item->id])}}">xóa</a></td>
 
                         </tr>

@@ -383,7 +383,9 @@
                         <div class="regiter-right">
                             <input type="text" placeholder="Địa chỉ email" name="email">
                         </div>
+
                         <textarea name="message" id="form-group" cols="30" rows="10" placeholder="Lời nhắn" ></textarea>
+                       
                         <div class="button-register">
                             <button type="submit">Đăng ký</button>
                         </div>

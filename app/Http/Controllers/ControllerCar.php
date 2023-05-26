@@ -92,7 +92,9 @@ class ControllerCar extends Controller
             'name' => 'required',
             'price' => 'required|integer',
             'description' => 'required',
-            'manufacture' => 'required'
+            'manufacture' => 'required',
+            'mainImage' =>'required',
+
         ]);
 
         $data = $request->all();
@@ -183,9 +185,6 @@ class ControllerCar extends Controller
         $car['image1'] = $filename1;
         $car['image2'] = $filename2;
         $car['image3'] = $filename3;
-        // $car->image1 = Request()->image1;
-        // $car->image2 = Request()->image2;
-        // $car->image3 = Request()->image3;
         $car->manufacture = Request()->manufacture;
 
         $car->save();

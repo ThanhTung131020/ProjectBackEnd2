@@ -22,7 +22,11 @@
 
                 </div>
                 <div class="col-md-6">
-                    <a href="{{route('admin.add')}}" class="btn btn-primary float-end">thêm mới </a>
+                    <a href="{{route('admin.add')}}" class="btn btn-primary float-end" style="margin-left: 50px">thêm mới </a>
+                    <a href="{{route('home')}}" class="btn btn-primary float-end">trang chủ </a>
+                </div>
+                <div class="col-md-6">
+
 
                 </div>
             </div>

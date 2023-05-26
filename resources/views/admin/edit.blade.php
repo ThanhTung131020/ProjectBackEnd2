@@ -60,7 +60,7 @@
                                     ảnh chi tiết 1
                                 </strong>
                                 <img src="{{url('uploads')}}/{{$cars->image1}}" alt="" width="100px" height="100px">
-                                <input type="file" name="image1" id="image1">
+                                <input type="file" name="image1" id="image1" >
                             </div>
                             <div class="form-group" style="margin-top:20px">
                                 <strong>

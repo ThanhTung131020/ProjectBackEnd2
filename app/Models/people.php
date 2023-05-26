@@ -14,6 +14,7 @@ class people extends Model
         'phone',
         'email',
         'message',
+        'status',
         'create_at',
         'update_at'
 
