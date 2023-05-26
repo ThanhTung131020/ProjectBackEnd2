@@ -619,10 +619,12 @@ ul.pagination li a.page-link {
                             <ul class="navbar-menu">
                                 <li><a href="{{route('home')}}" class="active">Trang chủ</a></li>
                                <li><a href="{{route('products')}}">sản phẩm</a></li>
+                                <li><a href="{{route('admin.car')}}">danh sách admin</a></li>
+                                <li><a href="{{route('ds-tu-van')}}">danh sách tư vấn</a></li>
                             </ul>
                         </div>
                     </div>
-                  
+
                     <div class="navigation-bottom">
                         <div class="account">
                         </div>

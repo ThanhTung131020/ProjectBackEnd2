@@ -25,12 +25,11 @@
                     <thead>
                     <tr>
                         <th>STT</th>
-                        <th>ID</th>
                         <th>tên</th>
                         <th>sdt</th>
                         <th>loi nhan</th>
                         <th>email</th>
-
+                         <th>chức năng</th>
 
                     </tr>
                     </thead>
@@ -42,13 +41,15 @@
                         <tr>
 
                             <td>{{++$i}}</td>
+
                             <td>{{$item->name}}</td>
                             <td>{{$item->phone}}</td>
-                            <td>{{$item->message}}</td>
-                            <td>{{$item->email}}
-                                </td>
+                            <td>{{$item->message}} </td>
+                            <td>{{$item->email}}</td>
+                            <td><a href="{{route('delete',['id'=>$item->id])}}">xóa</a></td>
 
                         </tr>
+
                         @endforeach
                     </tbody>
                 </table>
